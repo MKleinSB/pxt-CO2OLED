@@ -1,5 +1,5 @@
 
-> Diese Seite bei [https://mkleinsb.github.io/pxt-test2/](https://mkleinsb.github.io/pxt-test2/) öffnen
+> Diese Seite bei [https://mkleinsb.github.io/pxt-pxt-CO2OLED/](https://mkleinsb.github.io/pxt-CO2OLED/) öffnen
 
 ## Als Erweiterung verwenden
 
@@ -8,7 +8,7 @@ Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
 * öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
 * klicke auf **Neues Projekt**
 * klicke auf **Erweiterungen** unter dem Zahnrad-Menü
-* nach **https://github.com/mkleinsb/pxt-test2** suchen und importieren
+* nach **https://github.com/mkleinsb/pxt-CO2OLED** suchen und importieren
 
 ## Dieses Projekt bearbeiten ![Build Status Abzeichen](https://github.com/mkleinsb/pxt-test2/workflows/MakeCode/badge.svg)
 
@@ -16,14 +16,9 @@ Um dieses Repository in MakeCode zu bearbeiten.
 
 * öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
 * klicke auf **Importieren** und dann auf **Importiere URL**
-* füge **https://github.com/mkleinsb/pxt-test2** ein und klicke auf Importieren
+* füge **https://github.com/mkleinsb/pxt-pxt-CO2OLED** ein und klicke auf Importieren
 
-## Blockvorschau
-
-Dieses Bild zeigt den Blockcode vom letzten Commit im Master an.
-Die Aktualisierung dieses Bildes kann einige Minuten dauern.
-
-![Eine gerenderte Ansicht der Blöcke](https://github.com/mkleinsb/pxt-test2/raw/master/.github/makecode/blocks.png)
+![ ](https://github.com/MKleinSB/pxt-CO2OLED/blob/master/grafik.png)
 
 #### Metadaten (verwendet für Suche, Rendering)
 
