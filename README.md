@@ -16,11 +16,11 @@ Um dieses Repository in MakeCode zu bearbeiten.
 
 * öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
 * klicke auf **Importieren** und dann auf **Importiere URL**
-* füge **https://github.com/mkleinsb/pxt-pxt-CO2OLED** ein und klicke auf Importieren
+* füge **https://github.com/mkleinsb/pxt-CO2OLED** ein und klicke auf Importieren
 
 ![ ](https://github.com/MKleinSB/pxt-CO2OLED/blob/master/grafik.png)
 
 #### Metadaten (verwendet für Suche, Rendering)
 
 * for PXT/calliopemini
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+* for PXT/microbit
