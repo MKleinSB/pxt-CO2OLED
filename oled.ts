@@ -1,7 +1,7 @@
 /**
  * Kitronik VIEW 128x64 Display blocks
  * LCD chip SSD1306
- * angepasst an Calliope mini und erweitert von M.Klein 26.05.22
+ * angepasst an Calliope mini und erweitert von M.Klein 26.05.22-03.06.22
  **/
 //% weight=79 color=#00A654 icon="\uf26c" block="CO2 OLED"
 
@@ -79,7 +79,7 @@ namespace CO2OLED {
         ackBuf[0] = 0
         ackBuf[1] = 0xAF
         let ack = pins.i2cWriteBuffer(displayAddress, ackBuf)
-        if (ack == -1010) { //ifvalue return back is -1010, there is no display and show error message
+        if (ack == -1010) { //if value return back is -1010, there is no display and show error message
             basic.showString("ERROR - no display")
         }
         else {   //start initalising of the display
@@ -151,9 +151,8 @@ namespace CO2OLED {
         . . . # # . . .
         `)
 
-    //% blockId=zeigeProz block="show 7-segment Prozent %num"
-    //% block.loc.de="zeige 7-Segment Prozent %num"
-    //% group="Show"
+    //% blockId=zeigeProz block="show 7-segment |\\% %num"
+    //% block.loc.de="zeige 7-Segment |\\% %num"
     //% weight=90
     export function zeigeProz(num: number) {
         let zahlAlsText = ""
@@ -165,7 +164,6 @@ namespace CO2OLED {
             zahlAlsText = convertToText(Math.round(num))
             for (let Index = 0; Index <= zahlAlsText.length - 1; Index++) {
                 drawnum(parseFloat(zahlAlsText.substr(Index, 1)), Index + 3 - zahlAlsText.length)
-
                 writeImageOLED(Punkt, 117, 9)
                 writeImageOLED(Punkt, 116, 12)
                 writeImageOLED(Punkt, 115, 15)
@@ -182,14 +180,21 @@ namespace CO2OLED {
                 writeImageOLED(Punkt, 103, 14)
             }
         } else {
-            Errormessage
+          drawsegment("A", 0)
+          drawsegment("D", 0)
+          drawsegment("E", 0)
+          drawsegment("F", 0)
+          drawsegment("G", 0)
+          drawsegment("E", 32)
+          drawsegment("G", 32)
+          drawsegment("E", 64)
+          drawsegment("G", 64)
         }
         refresh() //Puffer anzeigen
     }
 
-    //% blockId=zeigeGrad block="show 7-segment Dregrees %num"
-    //% block.loc.de="zeige 7-Segment Gradzahl %num"
-    //% group="Show"
+    //% blockId=zeigeGrad block="show 7-segment °C %num"
+    //% block.loc.de="zeige 7-Segment °C %num"
     //% weight=90
     export function zeigeGrad(num: number) {
         let zahlAlsText = ""
@@ -199,6 +204,8 @@ namespace CO2OLED {
 
         if (num < 99 && num >= -9) {
             zahlAlsText = convertToText(Math.round(num))
+            if (num < 0) {
+                drawsegment("G", 0)}
             for (let Index = 0; Index <= zahlAlsText.length - 1; Index++) {
                 drawnum(parseFloat(zahlAlsText.substr(Index, 1)), Index + 2 - zahlAlsText.length)
                 writeImageOLED(Punkt, 80, 0)
@@ -208,7 +215,15 @@ namespace CO2OLED {
                 drawsegment("D", 96)
             }
         } else {
-            Errormessage
+          drawsegment("A", 0)
+          drawsegment("D", 0)
+          drawsegment("E", 0)
+          drawsegment("F", 0)
+          drawsegment("G", 0)
+          drawsegment("E", 32)
+          drawsegment("G", 32)
+          drawsegment("E", 64)
+          drawsegment("G", 64)
         }
         refresh() //Puffer anzeigen
     }
@@ -216,7 +231,6 @@ namespace CO2OLED {
 
     //% blockId=zeigeZahl block="show 7-segment number %num"
     //% block.loc.de="zeige 7-Segment Zahl %num"
-    //% group="Show"
     //% weight=91
     export function zeigeZahl(num: number) {
         let zahlAlsText = ""
@@ -229,20 +243,17 @@ namespace CO2OLED {
                 drawnum(parseFloat(zahlAlsText.substr(Index, 1)), Index + 4 - zahlAlsText.length)
             }
         } else {
-            Errormessage
+          drawsegment("A", 0)
+          drawsegment("D", 0)
+          drawsegment("E", 0)
+          drawsegment("F", 0)
+          drawsegment("G", 0)
+          drawsegment("E", 32)
+          drawsegment("G", 32)
+          drawsegment("E", 64)
+          drawsegment("G", 64)
         }
         refresh()
-    }
-    function Errormessage() {
-        drawsegment("A", 0)
-        drawsegment("D", 0)
-        drawsegment("E", 0)
-        drawsegment("F", 0)
-        drawsegment("G", 0)
-        drawsegment("E", 32)
-        drawsegment("G", 32)
-        drawsegment("E", 64)
-        drawsegment("G", 64)
     }
 
     function drawsegment(seg: string, pos: number) {
@@ -282,7 +293,6 @@ namespace CO2OLED {
 
     //% blockId=zeigeppm block="show ppm"
     //% block.loc.de="zeige ppm"
-    //% group="Show"
     //% weight=91
     export function ppm() {
         screenBuf.fill(0)       //Puffer löschen
@@ -483,7 +493,6 @@ namespace CO2OLED {
         if (initalised == 0) {
             initDisplay(1)
         }
-
         set_pos()
         pins.i2cWriteBuffer(displayAddress, screenBuf)
     }
