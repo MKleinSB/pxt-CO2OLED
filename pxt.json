@@ -1,6 +1,6 @@
 {
     "name": "pxt-CO2OLED",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "description": "gut lesbare OLED-Anzeige von CO2 Sensordaten",
     "dependencies": {
         "core": "*",
